@@ -3,11 +3,15 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import tkinter as tk
 import tkinter.messagebox as mb
+import datetime
+from dateutil.relativedelta import relativedelta
 yf.pdr_override()
-
+now_time = datetime.datetime.now()
+year = now_time - relativedelta(years=1)
+print(year)
 
 def chart_dollar():
-    df = pdr.get_data_yahoo('USDRUB=X', start='2022-01-20', end='2023-01-20')
+    df = pdr.get_data_yahoo('USDRUB=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index[0] != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -20,7 +24,7 @@ def chart_dollar():
 
 # нету
 def chart_tenge():
-    df = pdr.get_data_yahoo('RUBKZT=X', start='2020-01-20', end='2021-01-20')
+    df = pdr.get_data_yahoo('RUBKZT=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -32,7 +36,7 @@ def chart_tenge():
     else: show_warning()
 
 def chart_euro():
-    df = pdr.get_data_yahoo('EURRUB=X', start='2022-01-20', end='2023-01-20')
+    df = pdr.get_data_yahoo('EURRUB=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -45,7 +49,7 @@ def chart_euro():
 
 # нету
 def chart_yuan():
-    df = pdr.get_data_yahoo('CNYRUB=X', start='2011-01-01', end='2024-01-20')
+    df = pdr.get_data_yahoo('CNYRUB=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -58,7 +62,7 @@ def chart_yuan():
 
 # нету
 def chart_shekel():
-    df = pdr.get_data_yahoo('ILSRUB=X', start='2022-01-20', end='2023-01-20')
+    df = pdr.get_data_yahoo('ILSRUB=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -70,7 +74,7 @@ def chart_shekel():
     else: show_warning()
 
 def chart_yen():
-    df = pdr.get_data_yahoo('RUBJPY=X', start='2011-01-20', end='2023-01-20')
+    df = pdr.get_data_yahoo('RUBJPY=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -82,7 +86,7 @@ def chart_yen():
     else: show_warning()
 
 def chart_pound():
-    df = pdr.get_data_yahoo('GBPRUB=X', start='2022-01-20', end='2023-01-20')
+    df = pdr.get_data_yahoo('GBPRUB=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
@@ -95,7 +99,7 @@ def chart_pound():
 
 # нету
 def chart_rupiah():
-    df = pdr.get_data_yahoo('INRRUB=X', start='2022-01-20', end='2023-01-20')
+    df = pdr.get_data_yahoo('INRRUB=X', start=year.strftime('%Y-%m-%d'), end=now_time.strftime('%Y-%m-%d'))
     if df.index != None:
         fig = plt.figure(figsize=(16, 8))
         ax = fig.subplots(1)
