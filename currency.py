@@ -3,6 +3,7 @@ import requests
 ruble = []
 
 data = requests.get('https://free.currconv.com/api/v7/convert?apiKey=d9371a2ba6535eab179c=USD_RUB&compact=ultra').json()
+print(data)
 ruble.append(data['USD_RUB']) 
 
 data = requests.get('https://free.currconv.com/api/v7/convert?apiKey=d9371a2ba6535eab179c=RUB_KZT&compact=ultra').json()
